@@ -39,4 +39,7 @@ dependencies {
 
     //gson json converter
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }

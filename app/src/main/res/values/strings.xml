@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InfoCovid19</string>
+    <string name="nama_provinsi">Nama Provinsi</string>
+    <string name="data_provinsi">Data Provinsi</string>
 </resources>
