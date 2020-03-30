@@ -22,7 +22,7 @@ class PerkasusAdapter(private val daftarPerkasus: ArrayList<Perkasus>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): PerkasusAdapter.PerkasusHolder {
+    ): PerkasusHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.recyclerview_item_perkasus,parent,false)
         return PerkasusHolder(view)
@@ -30,7 +30,7 @@ class PerkasusAdapter(private val daftarPerkasus: ArrayList<Perkasus>) :
 
     override fun getItemCount() = daftarPerkasus.size
 
-    override fun onBindViewHolder(holder: PerkasusAdapter.PerkasusHolder, position: Int) {
+    override fun onBindViewHolder(holder: PerkasusHolder, position: Int) {
         holder.bind(daftarPerkasus[position])
     }
 

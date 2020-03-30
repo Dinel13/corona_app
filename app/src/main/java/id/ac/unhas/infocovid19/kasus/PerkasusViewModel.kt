@@ -1,8 +1,6 @@
 package id.ac.unhas.infocovid19.kasus
 
 import androidx.lifecycle.ViewModel
-import id.ac.unhas.infocovid19.kasus.Perkasus
-import id.ac.unhas.infocovid19.kasus.PerkasusRepository
 
 class PerkasusViewModel(
     private val repository: PerkasusRepository

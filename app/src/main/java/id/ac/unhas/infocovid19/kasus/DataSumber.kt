@@ -1,11 +1,7 @@
 package id.ac.unhas.infocovid19.kasus
 
-import id.ac.unhas.infocovid19.kasus.Datakasus
-
 import android.content.Context
-import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import java.io.IOException
 
 class DataSumber {
