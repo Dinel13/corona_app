@@ -1,4 +1,5 @@
-package id.ac.unhas.infocovid19.ui.provinsi
+package id.ac.unhas.infocovid19.kasus
+
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,20 +8,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.unhas.infocovid19.R
-import id.ac.unhas.infocovid19.model.DataSource
-import id.ac.unhas.infocovid19.model.Provinsi
-import kotlinx.android.synthetic.main.provinsilist_fragment.*
+import kotlinx.android.synthetic.main.fragment_perkasus.*
 
-class ProvinsiListFragment : Fragment() {
+class PerkasusFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ProvinsiListFragment()
+        fun newInstance() = PerkasusFragment()
     }
 
-    private lateinit var viewModel: ProvinsiViewModel
-    private lateinit var viewModelFactory: ProvinsiViewModelFactory
+    private lateinit var viewModel: PerkasusViewModel
+    private lateinit var viewModelFactory: PerkasusViewModelFactory
 
     private lateinit var linearLayoutManager: LinearLayoutManager
 
@@ -38,14 +38,14 @@ class ProvinsiListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val jsonList:String =
             activity?.applicationContext?.let {
-                DataSource.getJsonDataFromAsset(it, "provinsi.json")
+                DataSumber.getJsonDataFromAsset(it, "kasus.json")
             }.toString()
 
-        val provinsiRepository = ProvinsiRepository(jsonList)
+        val perkasusRepository = PerkasusRepository(jsonList)
 
-        viewModelFactory =ProvinsiViewModelFactory(provinsiRepository)
+        viewModelFactory = PerkasusViewModelFactory(perkasusRepository)
 
-        viewModel = ViewModelProvider(this,viewModelFactory).get(ProvinsiViewModel::class.java)
+        viewModel = ViewModelProvider(this,viewModelFactory).get(PerkasusViewModel::class.java)
 
         viewModel.getMoviesFromRepo()
 
@@ -54,7 +54,7 @@ class ProvinsiListFragment : Fragment() {
         linearLayoutManager = LinearLayoutManager(context)
         recyclerview.layoutManager = linearLayoutManager
 
-        val adapter = ProvinsiAdapter(viewModel.movies)
+        val adapter = PerkasusAdapter(viewModel.movies)
 
         recyclerview.adapter = adapter
 
